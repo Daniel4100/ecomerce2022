@@ -20,7 +20,6 @@ function App() {
   const [productInfo, setProductInfo] = useState()
   const [togleFilter, setTogleFilter] = useState(false)
 
-  console.log(cartProducts)
 
   const dispatch = useDispatch()
   useEffect(() => {

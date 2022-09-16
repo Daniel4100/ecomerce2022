@@ -47,7 +47,6 @@ const Home = ({ getItemsCart, togleFilter, handleTogleFilter, setTogleFilter, ge
     }
   }, [objestFilterPrice?.from, objestFilterPrice?.to])
 
-  console.log(objestFilterPrice)
 
   
 

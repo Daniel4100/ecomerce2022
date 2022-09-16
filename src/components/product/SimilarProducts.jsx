@@ -10,7 +10,6 @@ const SimilarProducts = ({productInfo, getProductInfo, getItemsCart}) => {
 
     useEffect(() => {
         if (productInfo) {
-            console.log(productInfo)
             const filter = products?.filter(e => e.category.name === productInfo.category)
             setFilterProducts(filter)
         }

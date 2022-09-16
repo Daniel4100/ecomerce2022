@@ -39,6 +39,7 @@ const ProductDetail = ({ getProductInfo, productInfo, getItemsCart }) => {
       axios
         .post(URL, { id: productInfo.id, quantity: counter }, getConfig())
         .then((res) => {
+          getItemsCart()
           setCounter(1)
           console.log(res)
         })
@@ -47,7 +48,6 @@ const ProductDetail = ({ getProductInfo, productInfo, getItemsCart }) => {
       navigate('/login')
     }
   }
-  console.log(productInfo)
 
   const prev = () => {
     if (numberImage - 1 < 0) {
@@ -65,7 +65,6 @@ const ProductDetail = ({ getProductInfo, productInfo, getItemsCart }) => {
     }
   }
 
-  console.log(numberImage)
 
   return (
     <div className=" min-h-screen pt-20 flex flex-col items-center">

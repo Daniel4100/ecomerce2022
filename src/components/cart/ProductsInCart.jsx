@@ -23,7 +23,6 @@ const ProductsInCart = ({ cartProducts, getItemsCart, getProductInfo }) => {
     getProductInfo(id)
   }
 
-  console.log('hola')
 
   return (
     <div className="flex overflow-auto flex-col items-center gap-4 py-2 px-2 w-full">

@@ -19,9 +19,7 @@ const Header = ({
     if (cartToggle) {
       getItemsCart()
     }
-    console.log('dentro del if')
   }, [cartToggle])
-  console.log(cartProducts)
 
   const handleCheckout = () => {
     const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/purchases'
@@ -43,16 +41,13 @@ const Header = ({
 
   return (
     <header className="fixed flex z-50 shadow-md w-full h-20 px-5 items-center bg-slate-100 justify-between  top-0 ">
-
       <NavLink className="flex items-center" to="/">
-
         <img className="w-10" src="./images/logo.png" alt="" />
         <h1 className="font-bold text-xl">E-commerce</h1>
       </NavLink>
       <nav className="flex  h-full  ">
         <ul className="flex w-full h-full gap-4 md:gap-8 lg:gap-10">
           <li className="h-full   flex items-center justify-center ">
-
             <NavLink
               className={({ isActive }) =>
                 isActive
@@ -60,12 +55,10 @@ const Header = ({
                   : ''
               }
               to="/login">
-
               <img className="w-8" src="./images/user.png" alt="icon" />
             </NavLink>
           </li>
           <li className="h-full   flex items-center justify-center">
-
             <NavLink
               className={({ isActive }) =>
                 isActive
@@ -76,9 +69,15 @@ const Header = ({
               <img className="w-8" src="./images/bag.png" alt="icon" />
             </NavLink>
           </li>
-          <li className="h-full   flex items-center justify-center">
-            <button onClick={handleCartToggle} className="pointer">
+          <li className="h-full    flex items-center justify-center">
+            <button
+              onClick={handleCartToggle}
+              className="pointer relative ">
               <img className="w-8" src="./images/cart.png" alt="icon" />
+
+              {cartProducts?.length >= 1 && <span className="absolute top-[-10px] right-[-9px] bg-red-500 rounded-full w-4 h-4 flex items-center justify-center text-white text-xs">
+                {cartProducts?.length}
+              </span>}
             </button>
           </li>
         </ul>
@@ -93,7 +92,9 @@ const Header = ({
             className='absolute top-2 right-2 w-8 h-8 bg-cover  bg-[url("./images/close.png")] rounded-full'
             onClick={handleCartToggle}></button>
           <div className="w-full h-4/5 flex flex-col items-center justify-start">
-            <h2 className="font-bold">{cartProducts?.length > 0 ? 'Cart' : 'Add products to cart'}</h2>
+            <h2 className="font-bold">
+              {cartProducts?.length > 0 ? 'Cart' : 'Add products to cart'}
+            </h2>
             <ProductsInCart
               getProductInfo={getProductInfo}
               getItemsCart={getItemsCart}
@@ -111,7 +112,6 @@ const Header = ({
               checkout
             </button>
           </div>
-
         </section>
       ) : null}
     </header>
